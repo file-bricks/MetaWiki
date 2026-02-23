@@ -3,7 +3,7 @@
   <img src="https://img.shields.io/badge/Sprachen-DE_%7C_EN-orange?style=for-the-badge" alt="Sprachen">
   <img src="https://img.shields.io/badge/Format-JSON-green?style=for-the-badge" alt="Format">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/License-GPL--3.0-red?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge" alt="Python">
 </p>
 
