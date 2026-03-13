@@ -79,7 +79,10 @@ class WikiStub:
             "definition_de": self.definition_de,
             "definition_en": self.definition_en,
             "relevance": self.relevance,
-            "tags": self.tags
+            "tags": self.tags,
+            "category": self.category,
+            "subcategory": self.subcategory,
+            "source_file": self.source_file,
         }
 
     @classmethod
@@ -265,6 +268,11 @@ class JsonHandler:
 
                 import shutil
                 shutil.copy(self.json_path, backup_file)
+
+                # Cleanup: keep only last 10 backups
+                backups = sorted(BACKUP_PATH.glob("metawiki_*.json"))
+                for old in backups[:-10]:
+                    old.unlink(missing_ok=True)
 
             with open(self.json_path, "w", encoding="utf-8") as f:
                 json.dump(self.data, f, ensure_ascii=False, indent=2)

@@ -20,6 +20,8 @@ Ohne API-Key oder ohne installiertes Paket wird "" zurueckgegeben (kein Fehler).
 import os
 import time
 
+MODEL_ID = "claude-haiku-4-5-20251001"
+
 
 def translate_text(text: str, target_lang: str = "en") -> str:
     """
@@ -62,12 +64,13 @@ def translate_text(text: str, target_lang: str = "en") -> str:
     try:
         client = anthropic.Anthropic(api_key=api_key)
         message = client.messages.create(
-            model="claude-haiku-4-5-20251001",
+            model=MODEL_ID,
             max_tokens=500,
             messages=[{"role": "user", "content": prompt}]
         )
         return message.content[0].text.strip()
-    except Exception:
+    except Exception as e:
+        print(f"Translation error: {e}")
         return ""
 
 
