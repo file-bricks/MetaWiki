@@ -5,6 +5,12 @@ Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.1.0/).
 
 ## [Unreleased]
 
+### Maintainer verification (2026-08-23)
+- 154 Python-Tests und 45 Node.js-PWA-Tests erfolgreich ausgeführt.
+  Ruff, vollständiges Compileall, CLI-Konsistenzcheck, Pipeline-Validierung
+  und Duplicate-Check waren erfolgreich; `llms.txt` wurde auf den aktuellen
+  Verifikationsstand synchronisiert.
+
 ## [1.1.8] - 2026-08-21
 
 ### Hinzugefügt / Added
