@@ -113,6 +113,7 @@ def test_pyproject_classifiers_and_urls():
     assert pyproject_path.is_file(), "pyproject.toml missing"
     content = pyproject_path.read_text(encoding="utf-8")
 
+    assert re.search(r'(?m)^requires\s*=\s*\[\s*"setuptools>=77\.0\.3"\s*\]\s*$', content)
     assert '"Programming Language :: Python :: 3.10"' in content
     assert '"Programming Language :: Python :: 3.11"' in content
     assert '"Programming Language :: Python :: 3.12"' in content
