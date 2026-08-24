@@ -108,7 +108,7 @@ def test_dataset_integrity():
 
 
 def test_pyproject_classifiers_and_urls():
-    """Verify pyproject.toml PEP 621 classifiers, python version support and project URLs."""
+    """Verify PEP 621/639 metadata, python version support and project URLs."""
     pyproject_path = PROJECT_ROOT / "pyproject.toml"
     assert pyproject_path.is_file(), "pyproject.toml missing"
     content = pyproject_path.read_text(encoding="utf-8")
@@ -118,7 +118,9 @@ def test_pyproject_classifiers_and_urls():
     assert '"Programming Language :: Python :: 3.12"' in content
     assert '"Programming Language :: Python :: 3.13"' in content
     assert '"Operating System :: OS Independent"' in content
-    assert '"License :: OSI Approved :: MIT License"' in content
+    assert re.search(r'(?m)^license\s*=\s*"MIT"\s*$', content)
+    assert re.search(r'(?m)^license-files\s*=\s*\[\s*"LICENSE"\s*\]\s*$', content)
+    assert '"License :: OSI Approved :: MIT License"' not in content
 
     assert 'Homepage = "https://github.com/dev-bricks/WikiStub-Seed"' in content
     assert 'Repository = "https://github.com/dev-bricks/WikiStub-Seed.git"' in content
