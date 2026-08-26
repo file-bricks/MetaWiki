@@ -15,6 +15,18 @@ def test_relevance_fallback_is_non_empty_for_every_seed_entry():
     assert all(get_relevance(entry, "en") for entry in entries)
 
 
+def test_missing_english_relevance_falls_back_to_german():
+    entry = {
+        "relevance": "Deutsche Relevanz.",
+        "relevance_i18n": {
+            "de": "Deutsche Relevanz.",
+            "en": "",
+        },
+    }
+
+    assert get_relevance(entry, "en") == "Deutsche Relevanz."
+
+
 def test_explicit_english_relevance_wins_and_unknown_language_falls_back_to_german():
     entry = {
         "relevance": "Deutsche Relevanz.",
